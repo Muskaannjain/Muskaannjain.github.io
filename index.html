@@ -6,23 +6,25 @@
 <title>Muskan Jain — Software &amp; ML Engineer</title>
 <meta name="description" content="Muskan Jain, MS Computer Science at Northeastern. LLM agents, RAG, ML and full-stack projects.">
 <style>
-  :root { --bg:#fff; --fg:#1a1a1a; --muted:#595959; --accent:#0b5fff; --card:#f4f5f7; }
-  @media (prefers-color-scheme: dark) {
-    :root { --bg:#111; --fg:#eee; --muted:#a0a0a0; --accent:#7aa7ff; --card:#1c1c1e; }
-  }
+  :root { --bg:#f6f0e1; --grid:#e6dfc9; --fg:#262a1c; --muted:#5b6048; --sage:#5f6b45; --orange:#c2570c; --paper:#fffaf0; }
   * { box-sizing:border-box; }
-  body { margin:0; font:17px/1.6 system-ui,sans-serif; background:var(--bg); color:var(--fg); }
+  body { margin:0; font:17px/1.6 system-ui,sans-serif; color:var(--fg); background-color:var(--bg);
+    background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+    background-size:28px 28px; }
   main, header, footer { max-width:46rem; margin:0 auto; padding:1.5rem; }
-  a { color:var(--accent); }
-  nav a { margin-right:1rem; }
-  h1 { font-size:2.2rem; margin:.5rem 0; }
-  h2 { margin-top:3rem; border-bottom:1px solid var(--card); padding-bottom:.3rem; }
-  .muted { color:var(--muted); }
-  .card { background:var(--card); border-radius:10px; padding:1rem 1.25rem; margin:1rem 0; }
-  .card h3 { margin:0 0 .25rem; }
+  a { color:var(--orange); font-weight:600; }
+  nav a { margin-right:1rem; color:var(--sage); }
+  h1 { font-size:2.6rem; margin:.5rem 0; color:var(--sage); letter-spacing:.02em; }
+  h1 span { color:var(--orange); }
+  h2 { margin-top:3rem; color:var(--sage); text-transform:uppercase; letter-spacing:.12em; font-size:1rem; }
+  .muted { color:var(--muted); font-weight:400; }
+  .card { background:var(--paper); border:2px solid var(--sage); border-radius:12px; margin:1.25rem 0; overflow:hidden; }
+  .card > h3 { margin:0; padding:.45rem 1rem; background:var(--sage); color:#fff; font:600 .95rem ui-monospace,Menlo,monospace; }
+  .card > h3 .muted { color:#e6dfc9; }
+  .card .body { padding:.5rem 1.25rem 1rem; }
   .card ul { padding-left:1.2rem; margin:.5rem 0; }
-  .tags span { display:inline-block; font-size:.8rem; border:1px solid var(--muted); border-radius:99px; padding:0 .6rem; margin:.25rem .25rem 0 0; }
-  dt { font-weight:600; } dd { margin:0 0 .5rem; }
+  .tags span { display:inline-block; font-size:.8rem; border:1.5px solid var(--sage); border-radius:99px; padding:0 .6rem; margin:.25rem .25rem 0 0; color:var(--sage); }
+  dt { font-weight:700; color:var(--sage); } dd { margin:0 0 .5rem; }
 </style>
 </head>
 <body>
@@ -31,7 +33,7 @@
 </header>
 <main>
   <section id="about">
-    <h1>Muskan Jain</h1>
+    <h1>hi! i'm <span>Muskan Jain</span></h1>
     <p class="muted">MS Computer Science, Northeastern University (May 2027) · Boston, MA</p>
     <p>I build LLM agents, ML systems and full-stack apps, and I test them hard: a 271-test CI suite,
        adversarial prompt-injection checks, and ablation studies. I'm looking for co-op and software / ML engineering roles.</p>
@@ -42,6 +44,7 @@
 
     <article class="card">
       <h3>AI Grading Agent <span class="muted">· May – Aug 2026</span></h3>
+      <div class="body">
       <ul>
         <li>Ingestion stage turns an uploaded assignment into a proposed solution and rubric, grounded in course textbooks via RAG over ChromaDB, with a deterministic offline fallback.</li>
         <li>ReAct grader–critic loop awards partial credit; an independent critic reviews each score; SymPy verifies final answers by symbolic equivalence across OpenAI, Anthropic and Gemini models.</li>
@@ -50,10 +53,12 @@
       </ul>
       <p class="tags"><span>Python</span><span>Streamlit</span><span>ChromaDB</span><span>SymPy</span><span>PostgreSQL</span><span>Docker</span></p>
       <a href="https://github.com/neuro-spicy/AI_Grading_Agent">Code on GitHub</a>
+    </div>
     </article>
 
     <article class="card">
       <h3>Sequence Game AI Agent <span class="muted">· Feb – Apr 2026</span></h3>
+      <div class="body">
       <ul>
         <li>Card-counting belief model plus an agent that samples plausible opponent hands and averages alpha-beta minimax policies, acting under hidden information without a full POMDP.</li>
         <li>Tuned four evaluation weights by hill-climbing RL self-play (157 rounds, ~47K games). RL-tuned agent won 60% vs the hand-tuned baseline and 90%+ vs random.</li>
@@ -61,10 +66,12 @@
       </ul>
       <p class="tags"><span>Python</span><span>PyTorch</span><span>NumPy</span></p>
       <a href="https://github.com/neuro-spicy/SequenceBoardGame-Agent">Code on GitHub</a>
+    </div>
     </article>
 
     <article class="card">
       <h3>AccessMapPlus — Accessibility Mapping Platform <span class="muted">· Oct – Dec 2025</span></h3>
+      <div class="body">
       <ul>
         <li>Normalized 10-table MySQL schema with 5 stored procedures, 3 triggers and 20 indexes.</li>
         <li>40+ Flask routes for issue reporting, reviews with image/video media, place search and authority-managed maintenance; dual-role session auth with hashed passwords and role-gated dashboards.</li>
@@ -72,6 +79,7 @@
       </ul>
       <p class="tags"><span>Python</span><span>Flask</span><span>MySQL</span><span>Jinja</span></p>
       <a href="https://github.com/Muskaannjain/AccessMaps_plus">Code on GitHub</a>
+    </div>
     </article>
   </section>
 
