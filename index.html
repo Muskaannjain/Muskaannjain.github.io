@@ -6,106 +6,84 @@
 <title>Muskan Jain — Software &amp; ML Engineer</title>
 <meta name="description" content="Muskan Jain, MS Computer Science at Northeastern. LLM agents, RAG, ML and full-stack projects.">
 <style>
-  :root { --bg:#f6f0e1; --grid:#e6dfc9; --fg:#262a1c; --muted:#5b6048; --sage:#5f6b45; --orange:#c2570c; --paper:#fffaf0; }
+  :root { --bg:#e9eef9; --panel:#fff; --blue:#8fa8dd; --ink:#1f2a44; --deep:#3d5a9e; --muted:#55607a; }
   * { box-sizing:border-box; }
-  body { margin:0; font:17px/1.6 system-ui,sans-serif; color:var(--fg); background-color:var(--bg);
-    background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
-    background-size:28px 28px; }
-  main, header, footer { max-width:46rem; margin:0 auto; padding:1.5rem; }
-  a { color:var(--orange); font-weight:600; }
-  nav a { margin-right:1rem; color:var(--sage); }
-  h1 { font-size:2.6rem; margin:.5rem 0; color:var(--sage); letter-spacing:.02em; }
-  h1 span { color:var(--orange); }
-  h2 { margin-top:3rem; color:var(--sage); text-transform:uppercase; letter-spacing:.12em; font-size:1rem; }
-  .muted { color:var(--muted); font-weight:400; }
-  .card { background:var(--paper); border:2px solid var(--sage); border-radius:12px; margin:1.25rem 0; overflow:hidden; }
-  .card > h3 { margin:0; padding:.45rem 1rem; background:var(--sage); color:#fff; font:600 .95rem ui-monospace,Menlo,monospace; }
-  .card > h3 .muted { color:#e6dfc9; }
-  .card .body { padding:.5rem 1.25rem 1rem; }
-  .card ul { padding-left:1.2rem; margin:.5rem 0; }
-  .tags span { display:inline-block; font-size:.8rem; border:1.5px solid var(--sage); border-radius:99px; padding:0 .6rem; margin:.25rem .25rem 0 0; color:var(--sage); }
-  dt { font-weight:700; color:var(--sage); } dd { margin:0 0 .5rem; }
+  body { margin:0; font:16px/1.55 system-ui,sans-serif; color:var(--ink); background:var(--bg); }
+  .grid { max-width:62rem; margin:0 auto; padding:1.25rem; display:grid; gap:1.25rem; grid-template-columns:1fr 1fr; }
+  section { background:var(--panel); border-radius:18px; padding:1.75rem; box-shadow:0 2px 10px #3d5a9e1a; }
+  .works { grid-column:span 2; }
+  h1 { font-size:clamp(2.6rem,8vw,4.5rem); line-height:1; margin:0 0 1rem; color:var(--blue); letter-spacing:-.02em; }
+  h2 { margin:0 0 .25rem; font-size:1.5rem; color:var(--deep); }
+  h2::after { content:""; display:block; width:2rem; height:3px; background:var(--blue); margin:.4rem 0 1rem; }
+  a { color:var(--deep); font-weight:600; }
+  .muted { color:var(--muted); }
+  .intro { display:flex; flex-direction:column; justify-content:flex-end; }
+  .intro .name { font-size:1.4rem; font-weight:700; color:var(--deep); margin:0; }
+  .tiles { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
+  .tile { background:var(--bg); border-radius:14px; padding:1rem; display:flex; flex-direction:column; }
+  .tile h3 { margin:0 0 .25rem; font-size:1.05rem; }
+  .tile p { margin:.25rem 0; }
+  .tile a { margin-top:auto; padding-top:.5rem; }
+  .tags { font-size:.8rem; color:var(--muted); }
+  dt { font-weight:700; color:var(--deep); font-size:.9rem; } dd { margin:0 0 .6rem; }
+  ul.links { list-style:none; padding:0; margin:0; }
+  ul.links li { margin:.4rem 0; }
+  @media (max-width:760px) { .grid, .tiles { grid-template-columns:1fr; } .works { grid-column:auto; } }
 </style>
 </head>
 <body>
-<header>
-  <nav aria-label="Primary"><a href="#about">About</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#contact">Contact</a></nav>
-</header>
-<main>
-  <section id="about">
-    <h1>hi! i'm <span>Muskan Jain</span></h1>
-    <p class="muted">MS Computer Science, Northeastern University (May 2027) · Boston, MA</p>
-    <p>I build LLM agents, ML systems and full-stack apps, and I test them hard: a 271-test CI suite,
-       adversarial prompt-injection checks, and ablation studies. I'm looking for co-op and software / ML engineering roles.</p>
+<main class="grid">
+
+  <section class="intro" aria-label="Intro">
+    <h1>PORT&shy;FOLIO</h1>
+    <p class="name">Muskan Jain</p>
+    <p class="muted">MS Computer Science, Northeastern · May 2027<br>Looking for co-op &amp; software / ML engineering roles</p>
   </section>
 
-  <section id="projects">
-    <h2>Projects</h2>
-
-    <article class="card">
-      <h3>AI Grading Agent <span class="muted">· May – Aug 2026</span></h3>
-      <div class="body">
-      <ul>
-        <li>Ingestion stage turns an uploaded assignment into a proposed solution and rubric, grounded in course textbooks via RAG over ChromaDB, with a deterministic offline fallback.</li>
-        <li>ReAct grader–critic loop awards partial credit; an independent critic reviews each score; SymPy verifies final answers by symbolic equivalence across OpenAI, Anthropic and Gemini models.</li>
-        <li>Hardened against prompt injection with 6 adversarial payloads (spoofed system messages, forged verdicts, hidden-character obfuscation).</li>
-        <li>Deployed on Railway (app + PostgreSQL) with Docker; 271-test pytest suite runs in CI on every push.</li>
-      </ul>
-      <p class="tags"><span>Python</span><span>Streamlit</span><span>ChromaDB</span><span>SymPy</span><span>PostgreSQL</span><span>Docker</span></p>
-      <a href="https://github.com/neuro-spicy/AI_Grading_Agent">Code on GitHub</a>
-    </div>
-    </article>
-
-    <article class="card">
-      <h3>Sequence Game AI Agent <span class="muted">· Feb – Apr 2026</span></h3>
-      <div class="body">
-      <ul>
-        <li>Card-counting belief model plus an agent that samples plausible opponent hands and averages alpha-beta minimax policies, acting under hidden information without a full POMDP.</li>
-        <li>Tuned four evaluation weights by hill-climbing RL self-play (157 rounds, ~47K games). RL-tuned agent won 60% vs the hand-tuned baseline and 90%+ vs random.</li>
-        <li>Trained a 933K-parameter CNN value network by heuristic distillation (Pearson r = 0.895 on 16,972 held-out positions); 5-agent round-robin with an ablation study.</li>
-      </ul>
-      <p class="tags"><span>Python</span><span>PyTorch</span><span>NumPy</span></p>
-      <a href="https://github.com/neuro-spicy/SequenceBoardGame-Agent">Code on GitHub</a>
-    </div>
-    </article>
-
-    <article class="card">
-      <h3>AccessMapPlus — Accessibility Mapping Platform <span class="muted">· Oct – Dec 2025</span></h3>
-      <div class="body">
-      <ul>
-        <li>Normalized 10-table MySQL schema with 5 stored procedures, 3 triggers and 20 indexes.</li>
-        <li>40+ Flask routes for issue reporting, reviews with image/video media, place search and authority-managed maintenance; dual-role session auth with hashed passwords and role-gated dashboards.</li>
-        <li>Jinja templates and custom glassmorphism CSS for separate user and authority dashboards.</li>
-      </ul>
-      <p class="tags"><span>Python</span><span>Flask</span><span>MySQL</span><span>Jinja</span></p>
-      <a href="https://github.com/Muskaannjain/AccessMaps_plus">Code on GitHub</a>
-    </div>
-    </article>
-  </section>
-
-  <section id="skills">
-    <h2>Skills</h2>
+  <section id="about" aria-labelledby="about-h">
+    <h2 id="about-h">About me</h2>
+    <p>I build LLM agents, ML systems and full-stack apps, and I test them hard: a 271-test CI suite, adversarial prompt-injection checks, ablation studies.</p>
     <dl>
-      <dt>Languages &amp; databases</dt><dd>Python, SQL, C/C++, Java, JavaScript, TypeScript, MySQL, PostgreSQL, ChromaDB</dd>
-      <dt>ML &amp; AI</dt><dd>PyTorch, NumPy, matplotlib, SymPy, CNNs, RL, RAG, ReAct agents, OpenAI / Anthropic / Gemini APIs</dd>
-      <dt>Tools, cloud &amp; web</dt><dd>Git, Docker, GitHub Actions, GCP, Railway, pytest, Flask, Streamlit, React, Jinja, CSS, Tailwind</dd>
+      <dt>Languages</dt><dd>Python, SQL, Java, C/C++, JavaScript, TypeScript</dd>
+      <dt>ML &amp; AI</dt><dd>PyTorch, RAG, ReAct agents, OpenAI / Anthropic / Gemini APIs</dd>
+      <dt>Tools</dt><dd>Docker, GitHub Actions, GCP, PostgreSQL, MySQL, Flask, React</dd>
     </dl>
+    <p class="muted"><strong>TA</strong>, CS3800 Theory of Computation · <strong>IEEE</strong> paper on paddy disease detection (2025)</p>
   </section>
 
-  <section id="experience">
-    <h2>Experience &amp; education</h2>
-    <p><strong>Teaching Assistant, CS3800 Theory of Computation</strong> — Northeastern University, Sep 2026 – present.
-       Conducted interview-style oral exams across the full syllabus; graded homework and student synthesis documents.</p>
-    <p><strong>M.S. Computer Science</strong> — Northeastern University, expected May 2027. Algorithms, DBMS, Foundations of Gen AI, MLOps.<br>
-       <strong>B.Tech Computer Science &amp; Engineering</strong> — Dr. A. P. J. Abdul Kalam Technical University, May 2024.</p>
-    <p><strong>Publication:</strong> Upadhyay, Vikas, Prasad, Jain — <em>Deep Learning-Based Paddy Disease Identification Using Light Weight CNN</em>, IEEE Xplore, March 2025.</p>
+  <section class="works" id="projects" aria-labelledby="works-h">
+    <h2 id="works-h">Selected works</h2>
+    <div class="tiles">
+      <article class="tile">
+        <h3>AI Grading Agent</h3>
+        <p>Multi-agent grader + critic with RAG over course texts; SymPy checks answers; hardened against 6 prompt-injection attacks. Deployed with Docker, 271 tests in CI.</p>
+        <p class="tags">Python · ChromaDB · PostgreSQL · Railway</p>
+        <a href="https://github.com/neuro-spicy/AI_Grading_Agent">Code →</a>
+      </article>
+      <article class="tile">
+        <h3>Sequence Game AI Agent</h3>
+        <p>Plays a hidden-information board game: belief model + minimax, weights tuned by RL self-play (60% vs hand-tuned), CNN value net r = 0.895.</p>
+        <p class="tags">Python · PyTorch · NumPy</p>
+        <a href="https://github.com/neuro-spicy/SequenceBoardGame-Agent">Code →</a>
+      </article>
+      <article class="tile">
+        <h3>AccessMapPlus</h3>
+        <p>Accessibility mapping platform: 10-table MySQL schema, 40+ Flask routes, role-based dashboards for users and authorities.</p>
+        <p class="tags">Python · Flask · MySQL</p>
+        <a href="https://github.com/Muskaannjain/AccessMaps_plus">Code →</a>
+      </article>
+    </div>
   </section>
+
+  <section id="contact" class="works" aria-labelledby="contact-h">
+    <h2 id="contact-h">Let's connect</h2>
+    <ul class="links">
+      <li><a href="mailto:muskaanjain.2608@gmail.com">muskaanjain.2608@gmail.com</a></li>
+      <li><a href="https://github.com/Muskaannjain">github.com/Muskaannjain</a></li>
+      <li><a href="https://www.linkedin.com/in/muskan-jain-2961483a5">linkedin.com/in/muskan-jain-2961483a5</a></li>
+    </ul>
+  </section>
+
 </main>
-<footer id="contact">
-  <h2>Contact</h2>
-  <p><a href="mailto:muskaanjain.2608@gmail.com">muskaanjain.2608@gmail.com</a> ·
-     <a href="https://github.com/Muskaannjain">GitHub</a> ·
-     <a href="https://www.linkedin.com/in/muskan-jain-2961483a5">LinkedIn</a></p>
-</footer>
 </body>
 </html>
